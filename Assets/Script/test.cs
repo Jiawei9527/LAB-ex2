@@ -7,7 +7,8 @@ public class test : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Debug.Log("this is a test for github push update.");
+
     }
 
     // Update is called once per frame
