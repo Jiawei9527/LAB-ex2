@@ -1,0 +1,163 @@
+title: Start
+
+position: 122,-233
+---
+Story: Italy during the Renaissance.
+Story: Venice.
+Story: In a bakery in a certain neighborhood.
+Story: The old man ALBERTO came to the bakery to see his son AGOSTINO. 
+Story: As the owner of the bakery, AGOSTINO hung a "Closing" sign on the door of the shop and returned to the shop, helplessly looking at his father who always caused him trouble.
+Agostino: Go ahead, what trouble have you come to me with this time?
+-> Alberto: Actually, it's nothing. I just wanted to see you, my dear son.
+    Agostino: Really? Well, you've seen me now. Since you have no business, please leave.
+    Alberto: No, wait! I...I actually need your help with something.
+    Agostino: Haha, I knew you wouldn't come to see me unless you had something to discuss. So, what's the matter?
+-> Alberto: I'm in trouble and I need your help, my son.
+    Agostino: Haha, I knew you wouldn't come to see me unless you had something to discuss. So, what's the matter?
+<<jump TheTrouble>>
+===
+title: TheTrouble
+position: 124,-86
+---
+Alberto: Actually, I want to borrow some money from you.
+Agostino: Did you spend all your money again?
+Alberto: Yes, not a single penny left.
+Agostino: Really? You're not lying to me, are you?
+Alberto: I would never lie to you, Agostino.
+After that, the two had a long conversation.
+After verbally promising his father that he would raise enough money to lend him the next day, Agostino fell into thinking.
+Was his father's words worth believing? He recalled the content of the previous conversation and tried to find the truth.
+-> Start with Money
+    <<jump TheMoney>>
+-> Start with job
+    <<jump Ajob>>
+-> Start with doubt
+    <<jump TheReason>>
+===
+
+title: TheReason
+position: 123,81
+---
+Alberto: My business went bankrupt and I am now penniless. 
+Alberto: I'm now penniless and without food or shelter. Please, lend me some money to get through this difficult time.
+Agostino: To be honest, in Venice, I've never seen such a failed businessman as you. Every time you do business, you lose money. 
+Agostino: When you lose money, you just borrow more, hoping to make it back. But then the new borrowed money ends up being lost as well. 
+Agostino: For heaven's sake, you shouldn't be in business anymore.
+Alberto: Yes, yes, you're right. This time, I promise I'll give up business and find a stable job.
+-> Agostino: Well, I can give you some money.
+    <<jump TheMoney>>
+-> Agostino: You want a fresh start, do you? Then I'll give you a chance.
+    <<jump Ajob>>
+-> Agostino: No, that's too suspicious, you must be lying! Tell me the real reason.
+    <<jump FakeRealReason>>
+===
+
+title: TheMoney
+position: 367,71
+---
+Agostino: How much money do you need this time?
+Alberto: I need 25 silver coins.
+-> Agostino: What? that's a lot of money, why do you need so much?
+   <<jump TheReason>>
+-> Agostino: I can give you something else.
+   <<jump Ajob>>
+-> Agostino: I changed my mind. I won't lend you the money.
+   <<jump FakeRealReason>>
+===
+
+title: Ajob
+position: -100,79
+---
+Alberto: My child, what do you want to give me?
+Agostino: A job! Quit your money-losing business. Get a job and settle down. You can start over as an apprentice in my bakery.
+Agostino: You'll have food and lodging there, so you won't need to worry about living on the streets. 
+Agostino: Work with your hands, earn your keep slowly, and build yourself up.
+Alberto: These sound good, but...Agostino, could you lend me some money? I really need the money.
+Agostino: I'm providing you with bread and housing. Why do you still need money?
+Alberto: Child, please give me the money. I'll figure out how to manage on my own.
+-> Agostino: It seems you only need money.
+    <<jump TheMoney>>
+-> Agostino: Why do you want money but not a job, a place to stay, or food?
+    <<jump TheReason>>
+-> Agostino: I've changed my mind, you're obviously hiding something from me. Now, I won't give you a job or money.
+    <<jump FakeRealReason>>
+===
+
+title: FakeRealReason
+position: 131,230
+---
+<<declare $choice = false>>
+Alberto: No, no, no, no, my child. Can you bear to see me living on the street? Please lend me some money.
+Agostino: If you don't tell me the truth, I won't give you anything.
+Alberto: Alright, child. I'll tell you the truth. Actually, I haven't paid back the money I borrowed from other merchants. 
+Alberto: They are ruthless and dangerous people. If I don't settle my debts before the deadline, they'll throw me into the sea to feed the fish!
+Alberto: I urgently need money to repay my debts. Please, child, you don't want to see your father die, do you?
+The general context has come to an end. Now, it is time to make a decision, do you believe it or not?
+Agostino: Should I trust my father and lend him the money?
+-> Agostino: Yes, he is my father.
+    <<set $choice to false>>
+    <<jump TheRealReason>>
+-> Agostino: No, I can't trust him!
+    <<set $choice to true>>
+    <<jump TheDecision>>
+===
+
+title: TheRealReason
+position: 272,388
+---
+
+The next day, Alberto successfully received the silver coins.
+After vowing to turn over a new leaf after paying off his debts, he left with great gratitude.
+Alberto: Haha, Agostino has been fooled again. As a Venetian merchant, he fell for such a simple lie.
+Alberto: How could the money I owe be settled with just a few silver coins?
+Alberto: The debt I owed would require him to sell the bakery to at least pay it off. 
+Alberto: Next time, I will persuade the creditor to take over the shop.
+A few days later, Alberto came again.
+<<if $choice is true>>
+    Alberto: Wait, why are there so many people in front of the bakery?
+    <<jump TrueEnd>>
+<<else>>
+    Alberto: Sorry, kid, the money we had before is still not enough.
+    <<jump Badend>>
+<<endif>>
+===
+
+title: TrueEnd
+position: -71,566
+---
+True end.
+Alberto: Why is the bakery closed? It should be open at this time as usual!
+Bystander: Don't you know? The owner of this shop mortgaged the bakery a few days ago.
+Bystander: Now he's disappeared with the borrowed money.
+Alberto: What? No!!!!!
+After seeing through his father's lies, the helpless son chose to leave. This may be the best outcome. 
+In Venice, a prosperous commercial city full of money and lies, such business stories happen every day.
+-> Restart the game.
+   <<jump Start>>
+===
+
+title: Badend
+position: 229,566
+---
+Bad end.
+Finally, Agostinho paid the price for his kindness, as Alberto was obviously cheating him.
+In order to pay off his father's heavy debts, Agostinho had to sell his bakery and start from scratch with nothing.
+If he could start over again, would he make different choices?
+-> Restart the game.
+   <<jump Start>>
+===
+
+title: TheDecision
+position: 6,388
+---
+Agostino: Father, do you really think your lies can fool me? You've never changed, always hoping for a lucky break. But this time, I can't help you.
+Agostino: When I said I had no money, did you think I was lying? The economy is bad, and my bakery is struggling.
+Agostino: If you were willing to work together to turn things around, maybe we could save it. 
+Agostino: But now, it seems I have no choice but to give up.
+<<jump TheRealReason>>
+
+===
+
+
+
+
